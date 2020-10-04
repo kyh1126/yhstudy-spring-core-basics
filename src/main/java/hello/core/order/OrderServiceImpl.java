@@ -13,11 +13,22 @@ public class OrderServiceImpl implements OrderService {
 	private final MemberRepository memberRepository;
 	private final DiscountPolicy discountPolicy;
 
+	// 생성자 주입을 사용하면 final 키워드를 넣을 수 있다.
 	@Autowired
 	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
 		this.memberRepository = memberRepository;
 		this.discountPolicy = discountPolicy;
 	}
+
+//	@Autowired
+//	public void setMemberRepository(MemberRepository memberRepository) {
+//		this.memberRepository = memberRepository;
+//	}
+//
+//	@Autowired
+//	public void setDiscountPolicy(DiscountPolicy discountPolicy) {
+//		this.discountPolicy = discountPolicy;
+//	}
 
 	@Override
 	public Order createOrder(Long memberId, String itemName, int itemPrice) {
