@@ -1,5 +1,7 @@
 package hello.core.order;
 
+import lombok.RequiredArgsConstructor;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -8,17 +10,11 @@ import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 
 @Component
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
 	private final MemberRepository memberRepository;
 	private final DiscountPolicy discountPolicy;
-
-	// 생성자 주입을 사용하면 final 키워드를 넣을 수 있다.
-	@Autowired
-	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-		this.memberRepository = memberRepository;
-		this.discountPolicy = discountPolicy;
-	}
 
 //	@Autowired
 //	public void setMemberRepository(MemberRepository memberRepository) {
