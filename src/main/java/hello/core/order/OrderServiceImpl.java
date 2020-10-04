@@ -4,12 +4,13 @@ import lombok.RequiredArgsConstructor;
 
 import org.springframework.stereotype.Component;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 
 @Component
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
 	private final MemberRepository memberRepository;
@@ -19,10 +20,10 @@ public class OrderServiceImpl implements OrderService {
 //	// 이렇게 빼서 생성자 자동 주입 형태로 만들어줘야 한다.
 //	public OrderServiceImpl(MemberRepository memberRepository, @Qualifier("mainDiscountPolicy") DiscountPolicy discountPolicy) {
 	// 이렇게 @Qualifier 붙은 커스텀 어노테이션 적용 가능
-//	public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
-//		this.memberRepository = memberRepository;
-//		this.discountPolicy = discountPolicy;
-//	}
+	public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
+		this.memberRepository = memberRepository;
+		this.discountPolicy = discountPolicy;
+	}
 
 	//	@Autowired
 //	public void setMemberRepository(MemberRepository memberRepository) {
