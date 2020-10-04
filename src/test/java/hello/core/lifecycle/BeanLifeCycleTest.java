@@ -16,8 +16,8 @@ class BeanLifeCycleTest {
 
 	@Configuration
 	static class LifeCycleConfig {
-//		@Bean
-		@Bean(initMethod = "init", destroyMethod = "close")
+		@Bean
+//		@Bean(initMethod = "init", destroyMethod = "close")
 		public NetworkClient networkClient() {
 			NetworkClient networkClient = new NetworkClient();
 			// 객체가 생성된 후 수정자 주입을 통해 값이 들어올 수도 있다.
